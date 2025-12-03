@@ -1,6 +1,54 @@
 import { z } from 'zod';
 
-// Auth schemas
+// Auth schemas - Email verification system
+export const loginSchema = z.object({
+  email: z.string()
+    .trim()
+    .email('Please enter a valid email address')
+    .max(255, 'Email must be less than 255 characters'),
+  password: z.string()
+    .min(6, 'Password must be at least 6 characters')
+    .max(100, 'Password must be less than 100 characters'),
+});
+
+export const registerSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(2, 'Name must be at least 2 characters')
+    .max(100, 'Name must be less than 100 characters'),
+  email: z.string()
+    .trim()
+    .email('Please enter a valid email address')
+    .max(255, 'Email must be less than 255 characters'),
+  password: z.string()
+    .min(6, 'Password must be at least 6 characters')
+    .max(100, 'Password must be less than 100 characters'),
+  confirmPassword: z.string()
+    .min(6, 'Password must be at least 6 characters'),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords don't match",
+  path: ["confirmPassword"],
+});
+
+export const forgotPasswordSchema = z.object({
+  email: z.string()
+    .trim()
+    .email('Please enter a valid email address')
+    .max(255, 'Email must be less than 255 characters'),
+});
+
+export const resetPasswordSchema = z.object({
+  password: z.string()
+    .min(6, 'Password must be at least 6 characters')
+    .max(100, 'Password must be less than 100 characters'),
+  confirmPassword: z.string()
+    .min(6, 'Password must be at least 6 characters'),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords don't match",
+  path: ["confirmPassword"],
+});
+
+// Legacy OTP schemas (kept for backward compatibility)
 export const requestOtpSchema = z.object({
   phoneNumber: z.string().min(10, 'Phone number must be at least 10 digits'),
 });
@@ -62,6 +110,11 @@ export const activitySchema = z.object({
   scheduledAt: z.string().optional(),
 });
 
+// Type exports
+export type LoginFormData = z.infer<typeof loginSchema>;
+export type RegisterFormData = z.infer<typeof registerSchema>;
+export type ForgotPasswordFormData = z.infer<typeof forgotPasswordSchema>;
+export type ResetPasswordFormData = z.infer<typeof resetPasswordSchema>;
 export type LeadFormData = z.infer<typeof leadSchema>;
 export type ProjectFormData = z.infer<typeof projectSchema>;
 export type UnitFormData = z.infer<typeof unitSchema>;
