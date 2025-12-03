@@ -2,102 +2,143 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* GlassMint Design System - 2025 Glassmorphism Theme */
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
-
-    --muted: 214 32% 91%;
-    --muted-foreground: 215 16% 47%;
-
-    --accent: 221 83% 53%;
+    /* GlassMint Core Colors */
+    --mint: 142 71% 57%;
+    --mint-light: 142 77% 73%;
+    --mint-dark: 142 76% 46%;
+    
+    --violet: 263 70% 58%;
+    --violet-light: 263 89% 76%;
+    --violet-dark: 263 70% 50%;
+    
+    /* Glass Surface Colors */
+    --glass-bg: 220 47% 11%;
+    --glass-elevated: 220 33% 17%;
+    --glass-surface: 0 0% 100% / 0.06;
+    --glass-surface-light: 0 0% 100% / 0.03;
+    
+    /* Text Colors */
+    --glass-text: 210 25% 93%;
+    --glass-muted: 215 16% 77%;
+    --glass-dark: 220 47% 11%;
+    
+    /* Border & Effects */
+    --glass-border: 0 0% 100% / 0.08;
+    --glass-border-light: 0 0% 100% / 0.12;
+    
+    /* Semantic Colors (mapped to glass theme) */
+    --background: 220 47% 11%;
+    --foreground: 210 25% 93%;
+    --card: 220 33% 17%;
+    --card-foreground: 210 25% 93%;
+    --popover: 220 33% 17%;
+    --popover-foreground: 210 25% 93%;
+    --primary: 142 71% 57%;
+    --primary-foreground: 220 47% 11%;
+    --secondary: 263 70% 58%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 33% 17%;
+    --muted-foreground: 215 16% 77%;
+    --accent: 263 70% 58%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
     --success: 142 76% 36%;
     --success-foreground: 210 40% 98%;
-
     --warning: 38 92% 50%;
-    --warning-foreground: 222 47% 11%;
-
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 221 83% 53%;
-
+    --warning-foreground: 220 47% 11%;
+    --border: 0 0% 100% / 0.08;
+    --input: 0 0% 100% / 0.08;
+    --ring: 142 71% 57%;
     --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 221 83% 53%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 210 40% 96%;
-    --sidebar-accent-foreground: 222 47% 11%;
-    --sidebar-border: 214 32% 91%;
-    --sidebar-ring: 221 83% 53%;
-  }
-
-  .dark {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
-
-    --card: 224 71% 4%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 224 71% 4%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 221 83% 53%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-
-    --success: 142 76% 36%;
-    --success-foreground: 210 40% 98%;
-
-    --warning: 38 92% 50%;
-    --warning-foreground: 222 47% 11%;
-
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 221 83% 53%;
-
-    --sidebar-background: 224 71% 4%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 221 83% 53%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 217 33% 17%;
+    
+    /* Sidebar */
+    --sidebar-background: 220 47% 8%;
+    --sidebar-foreground: 210 25% 93%;
+    --sidebar-primary: 142 71% 57%;
+    --sidebar-primary-foreground: 220 47% 11%;
+    --sidebar-accent: 263 70% 58%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 17%;
-    --sidebar-ring: 221 83% 53%;
+    --sidebar-border: 0 0% 100% / 0.08;
+    --sidebar-ring: 142 71% 57%;
   }
+
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 220 47% 11%;
+    --glass-bg: 210 40% 98%;
+    --glass-text: 220 47% 11%;
+    --glass-muted: 215 16% 47%;
+    --glass-surface: 0 0% 0% / 0.04;
+    --glass-border: 0 0% 0% / 0.08;
+    --card: 0 0% 100%;
+    --card-foreground: 220 47% 11%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-glass-bg text-glass-text antialiased;
+    background: linear-gradient(135deg, hsl(220 47% 11%) 0%, hsl(220 33% 17%) 50%, hsl(220 47% 11%) 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Glass Card Utilities */
+  .glass-card {
+    @apply bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl rounded-2xl;
+    box-shadow: 0 8px 30px rgba(7, 12, 34, 0.35);
+  }
+  
+  .glass-card-elevated {
+    @apply bg-white/[0.06] border border-white/[0.1] backdrop-blur-xl rounded-2xl;
+    box-shadow: 0 12px 40px rgba(7, 12, 34, 0.5);
+  }
+  
+  .glass-gradient {
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(124,58,237,0.06));
+  }
+  
+  .glass-bg {
+    @apply bg-white/[0.06] backdrop-blur-md;
+  }
+  
+  .glass-border {
+    @apply border border-white/[0.08];
+  }
+  
+  /* Glass Input */
+  .glass-input {
+    @apply bg-white/5 border border-white/[0.08] rounded-xl px-4 py-2 text-glass-text;
+    @apply placeholder:text-glass-muted backdrop-blur-md;
+    @apply focus:outline-none focus:ring-2 focus:ring-mint/30 focus:border-mint/50;
+    @apply transition-all duration-200;
+  }
+  
+  /* Mint Glow Effect */
+  .mint-glow {
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+  }
+  
+  .violet-glow {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+  }
+  
+  /* Status Badges */
+  .status-new { @apply bg-blue-400/20 text-blue-400 border-blue-400/20; }
+  .status-contacted { @apply bg-amber-400/20 text-amber-400 border-amber-400/20; }
+  .status-qualified { @apply bg-mint/20 text-mint border-mint/20; }
+  .status-converted { @apply bg-violet/20 text-violet-light border-violet/20; }
+  .status-lost { @apply bg-red-400/20 text-red-400 border-red-400/20; }
 }
 
 @layer base {
